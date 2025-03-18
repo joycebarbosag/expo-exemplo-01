@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { useEffect, useState } from "react";
 import {
   Alert,
@@ -11,6 +12,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+
 
 const windowDimensions = Dimensions.get("window");
 const screenDimensions = Dimensions.get("screen");
@@ -42,7 +44,7 @@ const DATA = [
   },
 ];
 
-const Item = ({ title }) => (
+const Item = ({ title } : {title:String}) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
   </View>
@@ -109,6 +111,7 @@ export default function Index() {
         onValueChange={toggleSwitch}
         value={isEnabled}
       />
+      <Link href="/list">Listagem</Link>
       <FlatList
         style={styles.list}
         data={DATA}
